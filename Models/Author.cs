@@ -7,10 +7,10 @@ namespace Pardut_Daniela_Laborator2.Models
         public int ID { get; set; }
 
         [Display(Name = "First Name")]
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
         [Display(Name = "Last Name")]
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
         // Proprietate calculată pentru afișare completa
         [Display(Name = "Full Name")]

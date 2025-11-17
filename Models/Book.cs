@@ -9,7 +9,7 @@ namespace Pardut_Daniela_Laborator2.Models
         public int ID { get; set; }
 
         [Display(Name = "Book Title")]// Modifică textul afișat în UI
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         [Column(TypeName = "decimal(6, 2)")]// Permite valori cu două zecimale și o precizie totală de 6
         public decimal Price { get; set; }
@@ -20,7 +20,8 @@ namespace Pardut_Daniela_Laborator2.Models
         public int? PublisherID { get; set; }
         public Publisher? Publisher { get; set; } // navigation property
         // Relație cu Author
-        public int? AuthorID { get; set; }
+        public int? AuthorID { get; set; } 
         public Author? Author { get; set; }  // navigation property
+        public ICollection<BookCategory>? BookCategories { get; set; }
     }
 }
