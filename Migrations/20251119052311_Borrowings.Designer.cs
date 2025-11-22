@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pardut_Daniela_Laborator2.Data;
 
@@ -11,9 +12,11 @@ using Pardut_Daniela_Laborator2.Data;
 namespace Pardut_Daniela_Laborator2.Migrations
 {
     [DbContext(typeof(Pardut_Daniela_Laborator2Context))]
-    partial class Pardut_Daniela_Laborator2ContextModelSnapshot : ModelSnapshot
+    [Migration("20251119052311_Borrowings")]
+    partial class Borrowings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

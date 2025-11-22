@@ -22,6 +22,7 @@ namespace Pardut_Daniela_Laborator2.Models
         // Relație cu Author
         public int? AuthorID { get; set; } 
         public Author? Author { get; set; }  // navigation property
+        public ICollection<Borrowing>? Borrowings { get; set; }
         public ICollection<BookCategory>? BookCategories { get; set; }
     }
 }
