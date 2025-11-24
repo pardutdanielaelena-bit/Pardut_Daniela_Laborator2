@@ -2,25 +2,40 @@
 
 namespace Pardut_Daniela_Laborator2.Models
 {
-    public class Member
-    {
-        public int ID { get; set; }
-        public string? FirstName { get; set; }
-        public string? LastName { get; set; }
-        public string? Adress { get; set; }
-
-        public string? Email { get; set; }
-        public string? Phone { get; set; }
-
-        [Display(Name = "Full Name")]
-        public string? FullName
+        public class Member
         {
-            get
-            {
-                return FirstName + " " + LastName;
-            }
-        }
+            public int ID { get; set; }
 
-        public ICollection<Borrowing>? Borrowings { get; set; }
+            [RegularExpression(@"^[A-Z]+[a-zA-Z\s-]*$",
+                ErrorMessage = "Prenumele trebuie sa inceapa cu majuscula (ex. Ana sau Ana Maria sau Ana-Maria)")]
+            [StringLength(30, MinimumLength = 3)]
+            public string? FirstName { get; set; }
+
+            [RegularExpression(@"^[A-Z]+[a-z\s]*$",
+                ErrorMessage = "Numele trebuie sa inceapa cu majuscula si sa contina doar litere mici sau spatiu")]
+            [StringLength(30, MinimumLength = 3)]
+            public string? LastName { get; set; }
+
+            [StringLength(70)]
+            public string? Adress { get; set; }
+
+            [Required]
+            [EmailAddress]
+            public string? Email { get; set; }
+
+            [Required(ErrorMessage = "Numărul de telefon este obligatoriu.")]
+            [RegularExpression(@"^0[0-9]{9}$", ErrorMessage = "Telefonul trebuie să înceapă cu 0 și să conțină exact 10 cifre.")]
+            public string Phone { get; set; }
+
+
+            [Display(Name = "Full Name")]
+            public string? FullName
+            {
+                 get
+                {
+                    return FirstName + " " + LastName;
+                }
+             }
+             public ICollection<Borrowing>? Borrowings { get; set; }
+        }
     }
-}

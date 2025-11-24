@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Pardut_Daniela_Laborator2.Data;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Pardut_Daniela_Laborator2.Pages.Categories
 {
+    [Authorize(Roles = "Admin")]
     public class IndexModel : PageModel
     {
         private readonly Pardut_Daniela_Laborator2.Data.Pardut_Daniela_Laborator2Context _context;
